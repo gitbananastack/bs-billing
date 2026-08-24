@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Banana fruit with gradient -->
+  <defs>
+    <linearGradient id="bananaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bananaDarkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D64500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main banana body -->
+  <path d="M 40 80 Q 60 40 100 50 Q 140 60 160 100 Q 165 120 160 140 Q 140 160 100 160 Q 70 155 60 130 Q 50 110 50 90" 
+        fill="url(#bananaGradient)" stroke="none"/>
+  
+  <!-- Darker shading on right side -->
+  <path d="M 100 50 Q 140 60 160 100 Q 165 120 160 140 Q 140 160 100 160 Q 110 155 120 130 Q 130 110 125 90 Q 120 70 110 60" 
+        fill="url(#bananaDarkGradient)" opacity="0.6" stroke="none"/>
+  
+  <!-- Highlight (white curved line) -->
+  <path d="M 50 85 Q 80 60 130 70" 
+        stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Banana tip accent -->
+  <circle cx="35" cy="75" r="6" fill="#FFD700" opacity="0.9"/>
+  
+  <!-- Small decorative dots on right (pixel style) -->
+  <rect x="155" y="85" width="8" height="8" fill="#FFB700" opacity="0.8"/>
+  <rect x="160" y="100" width="6" height="6" fill="#FF9500" opacity="0.8"/>
+  <rect x="165" y="115" width="7" height="7" fill="#FF8C00" opacity="0.8"/>
+  
+  <!-- Additional texture dots -->
+  <circle cx="100" cy="100" r="3" fill="#FFFFFF" opacity="0.4"/>
+  <circle cx="85" cy="90" r="2" fill="#FFFFFF" opacity="0.3"/>
+  <circle cx="120" cy="110" r="2.5" fill="#FFFFFF" opacity="0.3"/>
+</svg>

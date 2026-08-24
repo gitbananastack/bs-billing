@@ -1,0 +1,302 @@
+[
+  {
+    "id": "ms4d5ihgjvjo4s",
+    "type": "in",
+    "date": "2026-05-01",
+    "category": "Dynamic Construction",
+    "party": "Client",
+    "amount": 45000,
+    "note": "service charge + 3 yr support",
+    "ref": "TXN-2026-001"
+  },
+  {
+    "id": "ms4d6mhraa2mc9",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Travel",
+    "party": "",
+    "amount": 5500,
+    "note": "Fuel",
+    "ref": "TXN-2026-002"
+  },
+  {
+    "id": "ms4da1mjozmnl4",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Miscellaneous",
+    "party": "",
+    "amount": 1000,
+    "note": "",
+    "ref": "TXN-2026-003"
+  },
+  {
+    "id": "ms4dusndxd84yc",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Commission",
+    "party": "Vishnu Prakash",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-004"
+  },
+  {
+    "id": "ms4dvwxts27pc3",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Commission",
+    "party": "Kailas",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-005"
+  },
+  {
+    "id": "ms4dwheeep9u8u",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Commission",
+    "party": "Joshy Mon",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-006"
+  },
+  {
+    "id": "ms4eo3u7nmqn8k",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Commission",
+    "party": "Sujin Son",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-007"
+  },
+  {
+    "id": "ms4eomlibjz8fr",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Commission",
+    "party": "Sharon Vishnu",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-008"
+  },
+  {
+    "id": "ms4eph8b3tmwnb",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Salary",
+    "party": "Vishnu Prakash",
+    "amount": 3000,
+    "note": "",
+    "ref": "TXN-2026-009"
+  },
+  {
+    "id": "ms4eq6ji2u8dw8",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Salary",
+    "party": "Joshy Mon",
+    "amount": 3000,
+    "note": "",
+    "ref": "TXN-2026-010"
+  },
+  {
+    "id": "ms4er2ufo2c94g",
+    "type": "out",
+    "date": "2026-05-01",
+    "category": "Salary",
+    "party": "Sujin Son",
+    "amount": 3000,
+    "note": "",
+    "ref": "TXN-2026-011"
+  },
+  {
+    "id": "ms4ey8wcx2qdnt",
+    "type": "out",
+    "date": "2026-05-05",
+    "category": "material purchase",
+    "party": "",
+    "amount": 19500,
+    "note": "",
+    "ref": "TXN-2026-012"
+  },
+  {
+    "id": "ms4ezmvgbowx0g",
+    "type": "in",
+    "date": "2026-05-06",
+    "category": "BN Pulse",
+    "party": "Client",
+    "amount": 25000,
+    "note": "",
+    "ref": "TXN-2026-013"
+  },
+  {
+    "id": "ms4f0irk4y3vx6",
+    "type": "out",
+    "date": "2026-05-07",
+    "category": "Salary",
+    "party": "Sujin Son",
+    "amount": 1000,
+    "note": "",
+    "ref": "TXN-2026-014"
+  },
+  {
+    "id": "ms4f1726ka3hep",
+    "type": "out",
+    "date": "2026-05-07",
+    "category": "Salary",
+    "party": "Kailas",
+    "amount": 1500,
+    "note": "",
+    "ref": "TXN-2026-015"
+  },
+  {
+    "id": "ms4f36nfamuo6k",
+    "type": "out",
+    "date": "2026-05-07",
+    "category": "Salary",
+    "party": "Vishnu Prakash",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-016"
+  },
+  {
+    "id": "ms4f64olbnblm5",
+    "type": "in",
+    "date": "2026-06-01",
+    "category": "CCTV",
+    "party": "Client",
+    "amount": 10000,
+    "note": "",
+    "ref": "TXN-2026-017"
+  },
+  {
+    "id": "ms4f6ut4ta5jum",
+    "type": "out",
+    "date": "2026-06-02",
+    "category": "Salary",
+    "party": "Joshy Mon",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-018"
+  },
+  {
+    "id": "ms4f8hw4ucnk19",
+    "type": "out",
+    "date": "2026-06-02",
+    "category": "Salary",
+    "party": "Sujin Son",
+    "amount": 2000,
+    "note": "",
+    "ref": "TXN-2026-019"
+  },
+  {
+    "id": "ms4fafp07okb3e",
+    "type": "out",
+    "date": "2026-06-14",
+    "category": "Team Lunch",
+    "party": "",
+    "amount": 1604,
+    "note": "",
+    "ref": "TXN-2026-020"
+  },
+  {
+    "id": "ms4fc2b6iflkdo",
+    "type": "in",
+    "date": "2026-06-15",
+    "category": "Consulting",
+    "party": "PC installation",
+    "amount": 6000,
+    "note": "",
+    "ref": "TXN-2026-021"
+  },
+  {
+    "id": "ms4fev1n3dobv2",
+    "type": "out",
+    "date": "2026-06-16",
+    "category": "Consulting",
+    "party": "PC installation Salary",
+    "amount": 3270,
+    "note": "",
+    "ref": "TXN-2026-022"
+  },
+  {
+    "id": "ms4g05moxw3pgk",
+    "type": "out",
+    "date": "2026-05-20",
+    "category": "Domain Charges",
+    "party": "BananaStack",
+    "amount": 3355,
+    "note": "",
+    "ref": "TXN-2026-023"
+  },
+  {
+    "id": "ms4g2w6r9ebfcm",
+    "type": "out",
+    "date": "2026-06-21",
+    "category": "Karsh",
+    "party": "Vendor",
+    "amount": 5000,
+    "note": "",
+    "ref": "TXN-2026-024"
+  },
+  {
+    "id": "ms4g3r5mmaomhp",
+    "type": "out",
+    "date": "2026-07-01",
+    "category": "Miscellaneous",
+    "party": "",
+    "amount": 350,
+    "note": "",
+    "ref": "TXN-2026-025"
+  },
+  {
+    "id": "ms4g4ohyz3gvjk",
+    "type": "out",
+    "date": "2026-07-06",
+    "category": "Reg",
+    "party": "Karsh",
+    "amount": 13000,
+    "note": "",
+    "ref": "TXN-2026-026"
+  },
+  {
+    "id": "ms8w9h80wtp3v4",
+    "type": "in",
+    "date": "2026-07-30",
+    "category": "Hosting and Changes",
+    "party": "Client",
+    "amount": 3500,
+    "note": "work from sujin",
+    "ref": "TXN-2026-027"
+  },
+  {
+    "id": "ms8wa3fsafka8o",
+    "type": "out",
+    "date": "2026-07-30",
+    "category": "Salary",
+    "party": "Kailas",
+    "amount": 750,
+    "note": "",
+    "ref": "TXN-2026-028"
+  },
+  {
+    "id": "ms8wb4faa8tiue",
+    "type": "out",
+    "date": "2026-07-30",
+    "category": "Salary",
+    "party": "Joshy Mon",
+    "amount": 750,
+    "note": "",
+    "ref": "TXN-2026-029"
+  },
+  {
+    "id": "ms8wcb04bryo2h",
+    "type": "out",
+    "date": "2026-07-30",
+    "category": "Miscellaneous",
+    "party": "Vendor",
+    "amount": 1500,
+    "note": "Internet",
+    "ref": "TXN-2026-030"
+  }
+]

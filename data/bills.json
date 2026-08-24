@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ms4czrum4esfi4",
+    "billNumber": "BS-2026-101",
+    "date": "2026-08-15",
+    "dueDate": "2026-08-28",
+    "status": "Draft",
+    "clientName": "Adversado",
+    "clientEmail": "info@adversado.com",
+    "clientPhone": "",
+    "clientAddress": "",
+    "items": [
+      {
+        "id": "ms4czrup33jmjo",
+        "itemType": "Effort (Hrs)",
+        "description": "Effort (Hrs)",
+        "qty": 42,
+        "price": 500,
+        "taxRate": 0
+      },
+      {
+        "id": "ms4d0h71bpfgeu",
+        "itemType": "Platform Charges",
+        "description": "Platform Charges",
+        "qty": 1,
+        "price": 1500,
+        "taxRate": 0
+      },
+      {
+        "id": "ms4d0p79mtd6jg",
+        "itemType": "Hosting Charges",
+        "description": "Hosting Charges",
+        "qty": 1,
+        "price": 1250,
+        "taxRate": 0
+      }
+    ],
+    "discountEnabled": true,
+    "discountType": "percent",
+    "discountValue": 60,
+    "notes": "Hosting charges are applicable for one year. From the subsequent year, renewal charges will apply as per the provider’s pricing.",
+    "subtotal": 23750,
+    "discountAmount": 14250,
+    "total": 9500,
+    "_totalTax": 0,
+    "totalTax": 0
+  },
+  {
+    "id": "mt1pjot07hh8l1",
+    "billNumber": "BS-2026-002",
+    "date": "2026-08-20",
+    "dueDate": "2026-08-28",
+    "status": "Draft",
+    "clientName": "Adversado",
+    "clientEmail": "info@adversado.com",
+    "clientPhone": "",
+    "clientAddress": "",
+    "items": [
+      {
+        "id": "mt1pjot0lmd0of",
+        "invItemId": null,
+        "itemType": "Effort (Hrs)",
+        "description": "Effort (Hrs)",
+        "qty": 40,
+        "price": 500,
+        "taxRate": 0
+      },
+      {
+        "id": "mt1plfgir9gmiy",
+        "invItemId": null,
+        "itemType": "Platform Charges",
+        "description": "Platform Charges",
+        "qty": 1,
+        "price": 4000,
+        "taxRate": 0
+      }
+    ],
+    "discountEnabled": true,
+    "discountType": "percent",
+    "discountValue": 70,
+    "notes": "",
+    "_totalTax": 0,
+    "subtotal": 24000,
+    "discountAmount": 16800,
+    "totalTax": 0,
+    "total": 7200
+  },
+  {
+    "id": "mt1pns9oasgyil",
+    "billNumber": "BS-2026-003",
+    "date": "2026-08-20",
+    "dueDate": "2026-08-31",
+    "status": "Draft",
+    "clientName": "Adversado",
+    "clientEmail": "info@adversado.com",
+    "clientPhone": "",
+    "clientAddress": "",
+    "items": [
+      {
+        "id": "mt1pns9o8q53ld",
+        "invItemId": null,
+        "itemType": "Effort (Hrs)",
+        "description": "Effort (Hrs)",
+        "qty": 8,
+        "price": 250,
+        "taxRate": 0
+      }
+    ],
+    "discountEnabled": false,
+    "discountType": "percent",
+    "discountValue": 0,
+    "notes": "dversado Logo Coordination Fee",
+    "_totalTax": 0,
+    "subtotal": 2000,
+    "discountAmount": 0,
+    "totalTax": 0,
+    "total": 2000
+  }
+]

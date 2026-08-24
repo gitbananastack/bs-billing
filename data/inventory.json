@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ms4h9l186ixdgh",
+    "sku": "INV-2026-001",
+    "category": "Test",
+    "name": "testing",
+    "description": "testy1234",
+    "price": 1000,
+    "stock": 1
+  },
+  {
+    "id": "ms4hhantfdsf61",
+    "sku": "INV-2026-002",
+    "category": "Test2",
+    "name": "testing1",
+    "description": "weed",
+    "price": 1234,
+    "stock": 11
+  }
+]
