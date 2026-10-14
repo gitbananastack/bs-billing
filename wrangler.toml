@@ -1,0 +1,13 @@
+name = "bs-billing"
+main = "src/worker.js"
+compatibility_date = "2026-08-24"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Create with: npx wrangler kv namespace create BS_KV
+# then replace the id below with the generated id.
+[[kv_namespaces]]
+binding = "BS_KV"
+id = "35b32919be9f48b580451da20b57be4e"

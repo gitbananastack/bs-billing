@@ -237,6 +237,22 @@
   .purchase-review-actions{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-light);}
   .privacy-note{display:flex;gap:8px;align-items:flex-start;padding:10px;border-radius:9px;background:var(--green-light);color:#177744;font-size:11.5px;margin-top:12px;}
 
+  /* ---------- Vendor renewals ---------- */
+  .vendor-vault{display:grid;grid-template-columns:minmax(220px,1fr) minmax(260px,1.1fr);gap:16px;align-items:center;}
+  .vendor-vault-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .vendor-vault-controls input{min-width:150px;flex:1;padding:8px 10px;border:1px solid var(--gray-light);border-radius:7px;font:inherit;}
+  .vendor-vault-status{font-size:11.5px;color:var(--gray);margin-top:4px;}
+  .vendor-service-card{border:1px solid var(--gray-light);border-radius:8px;padding:14px;margin:12px 0;background:#FBFCFE;}
+  .vendor-service-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;}
+  .vendor-service-head strong{font-size:12.5px;}
+  .vendor-credential-note{grid-column:span 2;padding:8px 10px;border-radius:7px;background:#FFF7DF;color:#765400;font-size:11.5px;}
+  .vendor-expiry{white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .vendor-client-meta{font-size:11px;color:var(--gray);}
+  .vendor-total{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  [hidden]{display:none!important;}
+  .vendor-vault-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 0 14px;border-bottom:1px solid var(--gray-light);margin-bottom:12px;}
+  .vendor-vault-inline input{min-height:36px;padding:7px 9px;border:1px solid var(--gray-light);border-radius:7px;font:inherit;}
+
   /* ---------- Toast ---------- */
   #toast-root{position:fixed;bottom:22px;right:22px;z-index:200;display:flex;flex-direction:column;gap:10px;}
   .toast{background:var(--charcoal);color:#fff;padding:12px 16px;border-radius:9px;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:toast-in .2s ease;max-width:320px;}
@@ -270,6 +286,7 @@
     .topbar-actions{width:100%;justify-content:flex-start;}
     .dashboard-layout{grid-template-columns:1fr;}
     .purchase-workspace{grid-template-columns:1fr;}
+    .vendor-vault{grid-template-columns:1fr;}
   }
   @media(max-width:620px){.sidebar{grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 12px}.logo-row{justify-content:space-between;margin:0;min-height:38px}.mobile-nav-toggle{width:40px;height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid rgba(255,255,255,.22);border-radius:7px;background:transparent;color:#fff;cursor:pointer}.mobile-nav-toggle span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px}.sidebar:not(.mobile-nav-open)>.nav-btn,.sidebar:not(.mobile-nav-open)>.sidebar-footer{display:none}.sidebar.mobile-nav-open>.nav-btn{display:flex}.sidebar-footer{justify-content:stretch}.sidebar-footer .nav-btn{flex:1;justify-content:center;padding:9px 6px}.cards{grid-template-columns:1fr}.main{padding:18px 12px 44px}.quick-actions .btn{flex:1}.period-tabs{width:100%;overflow-x:auto}.period-tab{flex:1}.dashboard-chart{height:220px}}
 </style>
@@ -344,6 +361,10 @@
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.3 4.5 2.3 4.5 5.8"/></svg>
       Staff
     </button>
+    <button class="nav-btn" data-view="vendors">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4V2m8 2V2M3 9h18M8 13h3m-3 3h8"/></svg>
+      Clients &amp; Renewals
+    </button>
     <button class="nav-btn" data-view="reports">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       Reports
@@ -357,6 +378,10 @@
       <button class="nav-btn" id="btn-settings">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9c.4.3 1 .5 1.5.5H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>
         Business details
+      </button>
+      <button class="nav-btn" id="btn-user-access" hidden>
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11h6m-3-3v6"/></svg>
+        Users &amp; Access
       </button>
     </div>
   </aside>
@@ -806,6 +831,51 @@
       </div>
     </section>
 
+    <!-- ---------------- CLIENTS & RENEWALS ---------------- -->
+    <section id="view-vendors" class="view">
+      <div class="topbar">
+        <div><h1>Clients &amp; Renewals</h1><p>Track vendor contacts, AMC coverage, domains, hosting, databases, and renewal dates.</p></div>
+        <div class="topbar-actions"><button class="btn btn-primary" id="btn-add-vendor">+ Add Client / Vendor</button></div>
+      </div>
+      <div class="cards">
+        <div class="card net"><div class="label">Client Profiles</div><div class="value" id="vendor-stat-clients">0</div><div class="metric-sub">Tracked accounts</div></div>
+        <div class="card expense"><div class="label">Overdue</div><div class="value" id="vendor-stat-overdue">0</div><div class="metric-sub">Renewal dates passed</div></div>
+        <div class="card pending"><div class="label">Due in 30 Days</div><div class="value" id="vendor-stat-due">0</div><div class="metric-sub">Renewals to action</div></div>
+        <div class="card income"><div class="label">Tracked Services</div><div class="value" id="vendor-stat-services">0</div><div class="metric-sub">AMC, domain, hosting &amp; more</div></div>
+      </div>
+      <div class="panel vendor-vault">
+        <div>
+          <div class="panel-head" style="margin-bottom:4px"><h3>Credential vault</h3><span class="badge badge-draft" id="vendor-vault-badge">Locked</span></div>
+          <div class="vendor-vault-status" id="vendor-vault-status" aria-live="polite">Renewal details are available while credentials are locked.</div>
+          <div class="hint">Service usernames and passwords are encrypted in your browser with AES-GCM before saving. Use a unique vault passphrase.</div>
+        </div>
+        <div class="vendor-vault-controls">
+          <input type="password" id="vendor-vault-pass" placeholder="Vault passphrase" autocomplete="new-password" aria-label="Vault passphrase">
+          <input type="password" id="vendor-vault-confirm" placeholder="Confirm passphrase" autocomplete="new-password" aria-label="Confirm vault passphrase">
+          <button class="btn btn-secondary" id="btn-vendor-vault">Set up vault</button>
+          <button class="btn btn-ghost" id="btn-vendor-lock" hidden>Lock</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Renewal monitor</h3>
+            <div class="filter-row">
+            <input type="search" id="vendor-search" placeholder="Search client, service, provider..." aria-label="Search clients and services">
+            <select id="vendor-filter-status" aria-label="Filter renewals">
+              <option value="all">All renewals</option><option value="overdue">Overdue</option><option value="30">Due in 30 days</option><option value="60">Due in 60 days</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Client</th><th>Service</th><th>Provider</th><th>Renewal Date</th><th>Time Left</th><th class="num">Annual Cost</th><th>Status</th><th></th></tr></thead>
+            <tbody id="vendors-tbody"></tbody>
+          </table>
+        </div>
+        <div class="txn-pagination" id="vendor-pagination"></div>
+      </div>
+    </section>
+
     <!-- ---------------- REPORTS ---------------- -->
     <section id="view-reports" class="view">
       <div class="topbar">
@@ -946,9 +1016,15 @@ let state = {
   inventory: [],
   sales: [],
   purchases: [],
+  vendors: {salt:'', check:null, items:[]},
   profile: {...DEFAULT_PROFILE},
   loaded: false
 };
+let currentAccount = {username:'',role:'user',permissions:{}};
+const ACCESS_SCREENS = [
+  ['dashboard','Dashboard'],['bills','Manual Bills'],['quotations','Quotations'],['inventory','Inventory'],
+  ['purchases','Purchases'],['quick-sale','Quick Sale'],['sales','Sales'],['staff','Staff'],['vendors','Clients & Renewals'],['reports','Reports']
+];
 
 let billFormState = null;
 let editingTxnId = null;
@@ -979,6 +1055,7 @@ async function storageSet(key, value){
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({value})
     });
+    if(res.status===403){showToast('You do not have edit access to this screen.','error');return false;}
     return res.ok;
   }catch(e){
     showToast('Could not save data. Please try again.', 'error');
@@ -987,7 +1064,7 @@ async function storageSet(key, value){
 }
 
 async function loadAll(){
-  const [txns, bills, quotations, staff, inventory, sales, purchases, profile] = await Promise.all([
+  const [txns, bills, quotations, staff, inventory, sales, purchases, profile, vendors] = await Promise.all([
     storageGet('transactions', []),
     storageGet('bills', []),
     storageGet('quotations', []),
@@ -995,7 +1072,8 @@ async function loadAll(){
     storageGet('inventory', []),
     storageGet('sales', []),
     storageGet('purchases', []),
-    storageGet('profile', {...DEFAULT_PROFILE})
+    storageGet('profile', {...DEFAULT_PROFILE}),
+    storageGet('vendors', {salt:'', check:null, items:[]})
   ]);
   state.transactions = txns || [];
   state.bills = bills || [];
@@ -1005,6 +1083,7 @@ async function loadAll(){
   state.sales = sales || [];
   state.purchases = purchases || [];
   state.profile = {...DEFAULT_PROFILE, ...(profile || {})};
+  state.vendors = vendors && Array.isArray(vendors.items) ? vendors : {salt:'', check:null, items:[]};
   state.loaded = true;
   assignMissingTxnRefs();
 }
@@ -1047,6 +1126,7 @@ function saveInventory(){ return storageSet('inventory', state.inventory); }
 function saveSales(){ return storageSet('sales', state.sales); }
 function savePurchases(){ return storageSet('purchases', state.purchases); }
 function saveProfile(){ return storageSet('profile', state.profile); }
+function saveVendors(){ return storageSet('vendors', state.vendors); }
 
 function itemTaxRate(item){
   const productRate = Number(item && item.taxRate);
@@ -1122,11 +1202,13 @@ function showToast(msg, type){
    NAVIGATION
 ========================================================================= */
 function switchView(viewName){
+  if(!hasScreenAccess(viewName,'read')){showToast('You do not have access to this screen.','error');return;}
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + viewName).classList.add('active');
   document.querySelectorAll('.nav-btn[data-view]').forEach(b => {
     b.classList.toggle('active', b.dataset.view === viewName);
   });
+  applyScreenPermissions();
   closeMobileNavigation();
 }
 document.querySelectorAll('.nav-btn[data-view]').forEach(btn=>{
@@ -1135,6 +1217,7 @@ document.querySelectorAll('.nav-btn[data-view]').forEach(btn=>{
     if(btn.dataset.view === 'sales') renderSalesAnalytics();
     if(btn.dataset.view === 'purchases') renderPurchases();
     if(btn.dataset.view === 'quotations') renderQuotations();
+    if(btn.dataset.view === 'vendors') renderVendorMonitor();
   });
 });
 
@@ -1154,6 +1237,93 @@ document.getElementById('mobile-nav-toggle').addEventListener('click',()=>{
   toggle.setAttribute('aria-label',isOpen?'Close navigation':'Open navigation');
 });
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMobileNavigation();});
+
+function hasScreenAccess(screen,level='read'){
+  if(currentAccount.role==='admin'||currentAccount.username==='bnadmin')return true;
+  const permission=currentAccount.permissions?.[screen];
+  return !!permission&&(permission[level]===true||(level==='read'&&permission.edit===true));
+}
+
+function applyScreenPermissions(){
+  document.querySelectorAll('.nav-btn[data-view]').forEach(button=>{button.hidden=!hasScreenAccess(button.dataset.view,'read');});
+  document.querySelectorAll('[data-jump]').forEach(button=>{button.hidden=!hasScreenAccess(button.dataset.jump,'read');});
+  document.getElementById('btn-user-access').hidden=currentAccount.role!=='admin'&&currentAccount.username!=='bnadmin';
+  document.getElementById('btn-settings').hidden=currentAccount.role!=='admin'&&currentAccount.username!=='bnadmin';
+  const active=document.querySelector('.view.active');
+  if(!active)return;
+  const screen=active.id.replace('view-','');
+  const canEdit=hasScreenAccess(screen,'edit');
+  active.querySelectorAll('.permission-readonly-banner').forEach(el=>el.remove());
+  if(!canEdit){
+    const banner=document.createElement('div');banner.className='privacy-note permission-readonly-banner';banner.textContent='Read-only access: editing is disabled for this screen.';
+    active.querySelector('.topbar')?.after(banner);
+    active.querySelectorAll('input,textarea,select').forEach(el=>{
+      if(el.matches('[type="search"],#filter-txn-type,#filter-bill-status,#filter-bill-search,#filter-quote-status,#filter-quote-search,#filter-inv-search,#purchase-search,#vendor-search,#vendor-filter-status,#rpt-date-from,#rpt-date-to,#rpt-type,#rpt-category,#rpt-party,#rpt-ref,#rpt-min-amt,#rpt-max-amt,#rpt-search'))return;
+      el.disabled=true;
+    });
+    active.querySelectorAll('.row-actions button').forEach(button=>{
+      const label=`${button.title} ${button.getAttribute('aria-label')||''} ${button.textContent}`.toLowerCase();
+      if(!/view|history|download|print|details/.test(label)||/edit|delete|remove|pay|convert/.test(label)||button.hasAttribute('data-pay-purchase'))button.hidden=true;
+    });
+    active.querySelectorAll('.btn-primary').forEach(button=>{if(button.id!=='btn-run-report')button.hidden=true;});
+    active.querySelectorAll('[onclick*="edit"],[onclick*="delete"],[onclick*="remove"]').forEach(button=>button.hidden=true);
+    active.querySelectorAll('.status-select,[data-txn-amt]').forEach(element=>{element.disabled=true;element.style.pointerEvents='none';});
+  }
+}
+
+document.addEventListener('click',event=>{
+  const view=event.target.closest('.view');
+  if(!view)return;
+  const screen=view.id.replace('view-','');
+  if(hasScreenAccess(screen,'edit'))return;
+  const control=event.target.closest('.btn-primary,.btn-danger,[onclick*="edit"],[onclick*="delete"],[onclick*="remove"],[data-pay-purchase]');
+  if(!control)return;
+  if(control.id==='btn-run-report')return;
+  event.preventDefault();event.stopImmediatePropagation();
+  showToast('This screen is read-only for your account.','error');
+},true);
+
+document.addEventListener('change',event=>{
+  const view=event.target.closest('.view');
+  if(!view||hasScreenAccess(view.id.replace('view-',''),'edit'))return;
+  if(event.target.matches('.status-select')){
+    event.preventDefault();event.stopImmediatePropagation();
+    showToast('This screen is read-only for your account.','error');
+  }
+},true);
+
+async function adminApi(path,options={}){
+  const response=await fetch(path,{...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok)throw new Error(data.error||'Request failed');
+  return data;
+}
+
+async function openUserAccessManager(){
+  if(currentAccount.role!=='admin'&&currentAccount.username!=='bnadmin')return;
+  let users;
+  try{users=(await adminApi('/api/admin/users')).users;}catch(error){showToast(error.message,'error');return;}
+  const rows=users.map(user=>`<tr><td><strong>${escapeHtml(user.username)}</strong></td><td>${user.protected?'Administrator':'User'}</td><td>${user.protected?'<span class="vendor-client-meta">Protected account</span>':`<button class="btn btn-secondary btn-sm" data-edit-access-user="${escapeHtml(user.username)}">Edit Access</button> <button class="icon-btn" title="Delete user" aria-label="Delete ${escapeHtml(user.username)}" data-delete-access-user="${escapeHtml(user.username)}">×</button>`}</td></tr>`).join('');
+  openModal(`<div class="modal-head"><h3>Users &amp; Screen Access</h3></div><div class="table-wrap"><table><thead><tr><th>Username</th><th>Role</th><th></th></tr></thead><tbody>${rows||'<tr class="empty-row"><td colspan="3">No users configured.</td></tr>'}</tbody></table></div><div class="modal-actions"><button class="btn btn-ghost" id="user-access-close">Close</button><button class="btn btn-primary" id="user-access-add">+ Add User</button></div>`,{wide:true});
+  document.getElementById('user-access-close').onclick=closeModal;
+  document.getElementById('user-access-add').onclick=()=>openUserEditor(null);
+  document.querySelectorAll('[data-edit-access-user]').forEach(button=>button.onclick=()=>openUserEditor(users.find(user=>user.username===button.dataset.editAccessUser)));
+  document.querySelectorAll('[data-delete-access-user]').forEach(button=>button.onclick=()=>confirmAction(`Delete user ${button.dataset.deleteAccessUser}? They will immediately lose access.`,async()=>{try{await adminApi('/api/admin/users/'+encodeURIComponent(button.dataset.deleteAccessUser),{method:'DELETE'});showToast('User deleted.','success');openUserAccessManager();}catch(error){showToast(error.message,'error');}}));
+}
+
+function openUserEditor(user){
+  const permissionRows=ACCESS_SCREENS.map(([screen,label])=>{const access=user?.permissions?.[screen]||{};return `<tr><td>${label}</td><td><input type="checkbox" data-access-read="${screen}" ${access.read||access.edit?'checked':''} aria-label="${label} read access"></td><td><input type="checkbox" data-access-edit="${screen}" ${access.edit?'checked':''} aria-label="${label} edit access"></td></tr>`;}).join('');
+  openModal(`<div class="modal-head"><h3>${user?'Edit':'Add'} User Access</h3></div><div class="form-grid"><div class="field"><label>Username *</label><input id="m-access-username" value="${escapeHtml(user?.username||'')}" ${user?'readonly':''} placeholder="e.g. staff01"></div><div class="field"><label>${user?'New Password (optional)':'Password *'}</label><input type="password" id="m-access-password" autocomplete="new-password" placeholder="At least 8 characters"></div></div><div class="panel-head" style="margin-top:18px"><h3>Screen permissions</h3><span class="hint">Edit access includes read access.</span></div><div class="table-wrap"><table><thead><tr><th>Screen</th><th>Read</th><th>Edit</th></tr></thead><tbody>${permissionRows}</tbody></table></div><div class="modal-actions"><button class="btn btn-ghost" id="m-access-cancel">Cancel</button><button class="btn btn-primary" id="m-access-save">Save User</button></div>`,{wide:true});
+  document.querySelectorAll('[data-access-edit]').forEach(edit=>edit.addEventListener('change',()=>{if(edit.checked)document.querySelector(`[data-access-read="${edit.dataset.accessEdit}"]`).checked=true;}));
+  document.querySelectorAll('[data-access-read]').forEach(read=>read.addEventListener('change',()=>{if(!read.checked){const edit=document.querySelector(`[data-access-edit="${read.dataset.accessRead}"]`);edit.checked=false;}}));
+  document.getElementById('m-access-cancel').onclick=()=>openUserAccessManager();
+  document.getElementById('m-access-save').onclick=async()=>{
+    const username=document.getElementById('m-access-username').value.trim(),password=document.getElementById('m-access-password').value;
+    const permissions={};ACCESS_SCREENS.forEach(([screen])=>{permissions[screen]={read:document.querySelector(`[data-access-read="${screen}"]`).checked,edit:document.querySelector(`[data-access-edit="${screen}"]`).checked};});
+    try{await adminApi('/api/admin/users/'+encodeURIComponent(user?.username||username),{method:'PUT',body:JSON.stringify({username,password,permissions})});showToast('User access saved.','success');openUserAccessManager();}catch(error){showToast(error.message,'error');}
+  };
+}
+document.getElementById('btn-user-access').addEventListener('click',openUserAccessManager);
 
 /* =========================================================================
    MODAL HELPERS
@@ -2952,6 +3122,287 @@ window.printBarcode = function(id){
 };
 
 /* =========================================================================
+   CLIENTS, VENDORS & RENEWALS
+========================================================================= */
+let vendorVaultKey = null;
+const VENDOR_SERVICE_TYPES = ['AMC','Domain','Cloud VPS','Database','SSL Certificate','Email Hosting','Software License','Custom'];
+const VENDOR_VAULT_CHECK = 'bananastack-vendor-vault-v1';
+
+function vendorDaysUntil(dateValue){
+  if(!dateValue) return null;
+  const target = new Date(dateValue + 'T00:00:00');
+  if(Number.isNaN(target.getTime())) return null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.ceil((target - today) / 86400000);
+}
+
+function vendorServiceStatus(service){
+  const days = vendorDaysUntil(service.renewalDate);
+  if(days === null) return {label:'Date needed',className:'badge-draft',days};
+  if(days < 0) return {label:'Overdue',className:'badge-overdue',days};
+  if(days <= 30) return {label:'Due soon',className:'badge-overdue',days};
+  if(days <= 60) return {label:'Upcoming',className:'badge-draft',days};
+  return {label:'Active',className:'badge-paid',days};
+}
+
+function vendorServiceName(service){
+  return service.type === 'Custom' ? (service.customType || 'Custom service') : (service.type || 'Service');
+}
+
+function renderVendorVault(){
+  const configured = !!state.vendors.salt;
+  document.getElementById('vendor-vault-badge').textContent = vendorVaultKey ? 'Unlocked' : configured ? 'Locked' : 'Not set up';
+  document.getElementById('vendor-vault-badge').className = 'badge ' + (vendorVaultKey ? 'badge-paid' : 'badge-draft');
+  document.getElementById('vendor-vault-status').textContent = vendorVaultKey
+    ? 'Vault unlocked for this session. Lock it before leaving a shared device.'
+    : configured ? 'Vault locked. Renewal tracking remains available; credentials are not readable.'
+    : 'Set up a vault passphrase before adding usernames or passwords.';
+  document.getElementById('vendor-vault-confirm').hidden = configured;
+  document.getElementById('vendor-vault-pass').placeholder = configured ? 'Vault passphrase' : 'Create vault passphrase';
+  document.getElementById('btn-vendor-vault').textContent = vendorVaultKey ? 'Unlocked' : configured ? 'Unlock vault' : 'Set up vault';
+  document.getElementById('btn-vendor-vault').disabled = !!vendorVaultKey;
+  document.getElementById('btn-vendor-lock').hidden = !vendorVaultKey;
+}
+
+async function deriveVendorVaultKey(passphrase, salt){
+  const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:310000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+
+async function encryptVendorData(value, key=vendorVaultKey){
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const encoded = new TextEncoder().encode(JSON.stringify(value));
+  const cipher = await crypto.subtle.encrypt({name:'AES-GCM',iv},key,encoded);
+  return {iv:Array.from(iv),data:Array.from(new Uint8Array(cipher))};
+}
+
+async function decryptVendorData(value, key=vendorVaultKey){
+  if(!value || !key) return {};
+  const plain = await crypto.subtle.decrypt({name:'AES-GCM',iv:new Uint8Array(value.iv)},key,new Uint8Array(value.data));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+async function activateVendorVault(passphrase, confirm){
+  if(!window.crypto?.subtle){showToast('Credential encryption requires a secure browser context (HTTPS or localhost).','error');return false;}
+  if(passphrase.length < 12){showToast('Use a vault passphrase of at least 12 characters.','error');return false;}
+  try{
+    if(!state.vendors.salt){
+      if(passphrase !== confirm){showToast('Vault passphrases do not match.','error');return false;}
+      const salt=crypto.getRandomValues(new Uint8Array(16));
+      const key=await deriveVendorVaultKey(passphrase,salt);
+      state.vendors.salt=Array.from(salt);
+      state.vendors.check=await encryptVendorData(VENDOR_VAULT_CHECK,key);
+      vendorVaultKey=key;
+      await saveVendors();
+      showToast('Credential vault created. Keep the passphrase safe; it cannot be recovered.','success');
+    }else{
+      const key=await deriveVendorVaultKey(passphrase,new Uint8Array(state.vendors.salt));
+      if(await decryptVendorData(state.vendors.check,key)!==VENDOR_VAULT_CHECK) throw new Error('Incorrect passphrase');
+      vendorVaultKey=key;
+      showToast('Credential vault unlocked.','success');
+    }
+    renderVendorVault();
+    return true;
+  }catch(error){showToast('Could not unlock the vault. Check the passphrase and try again.','error');return false;}
+}
+
+document.getElementById('btn-vendor-vault').addEventListener('click', async ()=>{
+  const passphrase = document.getElementById('vendor-vault-pass').value;
+  const confirm = document.getElementById('vendor-vault-confirm').value;
+  const button = document.getElementById('btn-vendor-vault');
+  button.disabled = true;
+  try{
+    if(!await activateVendorVault(passphrase,confirm)) return;
+    document.getElementById('vendor-vault-pass').value = '';
+    document.getElementById('vendor-vault-confirm').value = '';
+    renderVendorMonitor();
+  }finally{button.disabled = !!vendorVaultKey;}
+});
+
+document.getElementById('btn-vendor-lock').addEventListener('click',()=>{
+  vendorVaultKey = null;
+  renderVendorVault();
+  renderVendorMonitor();
+  showToast('Credential vault locked.','success');
+});
+
+let vendorPage = 0;
+const VENDOR_PAGE_SIZE = 10;
+
+function renderVendorMonitor(){
+  const services = state.vendors.items.flatMap(vendor=>(vendor.services||[]).map(service=>({vendor,service,status:vendorServiceStatus(service)})));
+  const overdue = services.filter(row=>row.status.days !== null && row.status.days < 0).length;
+  const dueSoon = services.filter(row=>row.status.days !== null && row.status.days >= 0 && row.status.days <= 30).length;
+  document.getElementById('vendor-stat-clients').textContent = String(state.vendors.items.length);
+  document.getElementById('vendor-stat-overdue').textContent = String(overdue);
+  document.getElementById('vendor-stat-due').textContent = String(dueSoon);
+  document.getElementById('vendor-stat-services').textContent = String(services.length);
+  const search = (document.getElementById('vendor-search').value||'').trim().toLowerCase();
+  const filter = document.getElementById('vendor-filter-status').value;
+  let rows = services.filter(({vendor,service,status})=>{
+    const matchesSearch = !search || [vendor.clientName,vendor.contactName,vendor.email,vendor.phone,service.provider,vendorServiceName(service),service.loginUrl].some(value=>String(value||'').toLowerCase().includes(search));
+    const matchesFilter = filter==='all' || (filter==='overdue' ? status.days!==null&&status.days<0 : status.days!==null&&status.days>=0&&status.days<=Number(filter));
+    return matchesSearch && matchesFilter;
+  });
+  rows.sort((a,b)=>(a.status.days??Infinity)-(b.status.days??Infinity));
+  const totalPages=Math.ceil(rows.length/VENDOR_PAGE_SIZE);
+  if(vendorPage>=totalPages)vendorPage=Math.max(0,totalPages-1);
+  const pageRows=rows.slice(vendorPage*VENDOR_PAGE_SIZE,(vendorPage+1)*VENDOR_PAGE_SIZE);
+  const tbody = document.getElementById('vendors-tbody');
+  tbody.innerHTML = pageRows.map(({vendor,service,status})=>{
+    const timeLeft = status.days===null?'Set renewal date':status.days<0?`${Math.abs(status.days)} days overdue`:status.days===0?'Today':`${status.days} days`;
+    const contact = [vendor.contactName,vendor.email,vendor.phone].filter(Boolean).map(escapeHtml).join(' · ');
+    return `<tr class="tbl-row"><td><strong>${escapeHtml(vendor.clientName||'Unnamed client')}</strong><div class="vendor-client-meta">${contact||'No contact details'}</div></td><td>${escapeHtml(vendorServiceName(service))}${service.reference?`<div class="vendor-client-meta">${escapeHtml(service.reference)}</div>`:''}</td><td>${escapeHtml(service.provider||'—')}</td><td class="vendor-expiry">${service.renewalDate?fmtDate(service.renewalDate):'—'}</td><td>${escapeHtml(timeLeft)}</td><td class="num vendor-total">${fmtMoney(service.annualCost||0)}</td><td><span class="badge ${status.className}">${escapeHtml(status.label)}</span></td><td><div class="row-actions"><button class="icon-btn" title="View client details" aria-label="View ${escapeHtml(vendor.clientName)} details" onclick="viewVendor('${vendor.id}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="icon-btn" title="Edit client and services" aria-label="Edit ${escapeHtml(vendor.clientName)}" onclick="editVendor('${vendor.id}')">✎</button><button class="icon-btn" title="Delete this service entry" aria-label="Delete ${escapeHtml(vendorServiceName(service))} entry for ${escapeHtml(vendor.clientName)}" onclick="deleteVendorService('${vendor.id}','${service.id}')">×</button></div></td></tr>`;
+  }).join('') || '<tr class="empty-row"><td colspan="8">No services match this view. Add a client profile and track its first renewal.</td></tr>';
+  const pagination=document.getElementById('vendor-pagination');
+  pagination.innerHTML=totalPages>1?`<button id="vendor-prev" ${vendorPage===0?'disabled':''}>← Prev</button><span class="page-info">Page ${vendorPage+1} of ${totalPages} · ${rows.length} service${rows.length===1?'':'s'}</span><button id="vendor-next" ${vendorPage>=totalPages-1?'disabled':''}>Next →</button>`:'';
+  document.getElementById('vendor-prev')?.addEventListener('click',()=>{vendorPage--;renderVendorMonitor();});
+  document.getElementById('vendor-next')?.addEventListener('click',()=>{vendorPage++;renderVendorMonitor();});
+}
+
+function vendorServiceCard(service={},index=0,access={}){
+  const options = VENDOR_SERVICE_TYPES.map(type=>`<option value="${type}" ${service.type===type?'selected':''}>${type}</option>`).join('');
+  const secretPlaceholder = vendorVaultKey ? '' : 'Unlock vault before saving';
+  return `<div class="vendor-service-card" data-vendor-service="${escapeHtml(service.id||uid())}">
+    <div class="vendor-service-head"><strong>Service ${index+1}</strong><button type="button" class="icon-btn" data-remove-vendor-service title="Remove service" aria-label="Remove service">×</button></div>
+    <div class="form-grid cols-3">
+      <div class="field"><label>Service Type</label><select data-service-field="type">${options}</select></div>
+      <div class="field" data-custom-type style="${service.type==='Custom'?'':'display:none'}"><label>Custom Service</label><input data-service-field="customType" value="${escapeHtml(service.customType||'')}" placeholder="e.g. API subscription"></div>
+      <div class="field"><label>Vendor / Provider</label><input data-service-field="provider" value="${escapeHtml(service.provider||'')}" placeholder="e.g. hosting company"></div>
+      <div class="field"><label>Account / Reference</label><input data-service-field="reference" value="${escapeHtml(service.reference||'')}" placeholder="Plan, domain, or contract ID"></div>
+      <div class="field"><label>Start Date</label><input type="date" data-service-field="startDate" value="${escapeHtml(service.startDate||'')}"></div>
+      <div class="field"><label>Renewal / Expiry Date</label><input type="date" data-service-field="renewalDate" value="${escapeHtml(service.renewalDate||'')}"></div>
+      <div class="field"><label>Annual Cost (₹)</label><input type="number" min="0" step="0.01" data-service-field="annualCost" value="${Number(service.annualCost)||0}"></div>
+      <div class="field"><label>Reminder Lead (days)</label><input type="number" min="0" max="365" data-service-field="reminderDays" value="${Number.isFinite(Number(service.reminderDays))?Number(service.reminderDays):30}"></div>
+      <div class="field"><label>Auto-renew</label><select data-service-field="autoRenew"><option value="false" ${service.autoRenew?'':'selected'}>No</option><option value="true" ${service.autoRenew?'selected':''}>Yes</option></select></div>
+      <div class="field"><label>Login URL</label><input type="url" data-secret-field="loginUrl" value="${escapeHtml(access.loginUrl||'')}" placeholder="${vendorVaultKey?'https://':secretPlaceholder}"></div>
+      <div class="field"><label>Username / Account Email</label><input data-secret-field="username" value="${escapeHtml(access.username||'')}" autocomplete="off" placeholder="${secretPlaceholder}"></div>
+      <div class="field"><label>Password</label><input type="password" data-secret-field="password" value="${escapeHtml(access.password||'')}" autocomplete="new-password" placeholder="${secretPlaceholder}"></div>
+      <div class="field span-2"><label>Private Access Notes</label><textarea data-secret-field="notes" rows="2" placeholder="${secretPlaceholder}">${escapeHtml(access.notes||'')}</textarea></div>
+      ${!vendorVaultKey?'<div class="vendor-credential-note">You can type here now. Unlock the vault above before saving credentials; existing saved credentials remain hidden and unchanged while locked.</div>':''}
+    </div>
+  </div>`;
+}
+
+async function openVendorForm(existing){
+  let access = {};
+  if(existing?.encryptedAccess && vendorVaultKey){
+    try{access = await decryptVendorData(existing.encryptedAccess);}catch(error){showToast('Could not decrypt this profile access data. Unlock the vault again.','error');return;}
+  }
+  const services = existing?.services?.length ? existing.services : [{id:uid(),type:'AMC',annualCost:0,reminderDays:30}];
+  const serviceCards = services.map((service,index)=>vendorServiceCard(service,index,access[service.id]||{})).join('');
+  openModal(`<div class="modal-head"><h3>${existing?'Edit':'Add'} Client / Vendor</h3></div>
+    <div class="form-grid cols-3">
+      <div class="field span-2"><label>Client / Account Name *</label><input id="m-vendor-client" value="${escapeHtml(existing?.clientName||'')}" placeholder="Client or organization"></div>
+      <div class="field"><label>Account Status</label><select id="m-vendor-active"><option value="Active" ${existing?.status==='Inactive'?'':'selected'}>Active</option><option value="Inactive" ${existing?.status==='Inactive'?'selected':''}>Inactive</option></select></div>
+      <div class="field"><label>Primary Contact</label><input id="m-vendor-contact" value="${escapeHtml(existing?.contactName||'')}"></div>
+      <div class="field"><label>Email</label><input type="email" id="m-vendor-email" value="${escapeHtml(existing?.email||'')}"></div>
+      <div class="field"><label>Phone</label><input id="m-vendor-phone" value="${escapeHtml(existing?.phone||'')}"></div>
+      <div class="field span-2"><label>Client Address / Notes</label><textarea id="m-vendor-notes" rows="2">${escapeHtml(existing?.notes||'')}</textarea></div>
+    </div>
+    <div class="vendor-vault-inline" id="m-vendor-vault-inline" ${vendorVaultKey?'hidden':''}>
+      <strong>Credential vault locked</strong>
+      <input type="password" id="m-vendor-vault-pass" placeholder="${state.vendors.salt?'Vault passphrase':'Create vault passphrase'}" autocomplete="new-password" aria-label="Vault passphrase">
+      <input type="password" id="m-vendor-vault-confirm" placeholder="Confirm passphrase" autocomplete="new-password" aria-label="Confirm vault passphrase" ${state.vendors.salt?'hidden':''}>
+      <button type="button" class="btn btn-secondary btn-sm" id="m-vendor-vault-unlock">${state.vendors.salt?'Unlock vault':'Set up vault'}</button>
+      <span class="hint">Required before entering usernames, passwords, login URLs, or private notes.</span>
+    </div>
+    <div class="panel-head" style="margin-top:18px"><h3>Services &amp; renewal schedule</h3><button type="button" class="btn btn-secondary btn-sm" id="m-vendor-add-service">+ Add Service</button></div>
+    <div id="m-vendor-services">${serviceCards}</div>
+    <div class="modal-actions"><button class="btn btn-ghost" id="m-vendor-cancel">Cancel</button><button class="btn btn-primary" id="m-vendor-save">Save Profile</button></div>`,{wide:true});
+
+  const servicesRoot = document.getElementById('m-vendor-services');
+  document.getElementById('m-vendor-vault-unlock')?.addEventListener('click',async()=>{
+    const pass=document.getElementById('m-vendor-vault-pass').value;
+    const confirmPass=document.getElementById('m-vendor-vault-confirm').value;
+    const unlocked=await activateVendorVault(pass,confirmPass);
+    if(!unlocked)return;
+    let unlockedAccess={};
+    if(existing?.encryptedAccess){
+      try{unlockedAccess=await decryptVendorData(existing.encryptedAccess);}catch(error){showToast('Could not decrypt saved access details.','error');return;}
+    }
+    servicesRoot.querySelectorAll('.vendor-service-card').forEach(card=>{
+      const values=unlockedAccess[card.dataset.vendorService]||{};
+      card.querySelectorAll('[data-secret-field]').forEach(field=>{field.disabled=false;field.value=values[field.dataset.secretField]||'';});
+      card.querySelector('.vendor-credential-note')?.remove();
+    });
+    document.getElementById('m-vendor-vault-inline').hidden=true;
+  });
+  servicesRoot.addEventListener('change',event=>{
+    if(event.target.matches('[data-service-field="type"]')) event.target.closest('.vendor-service-card').querySelector('[data-custom-type]').style.display=event.target.value==='Custom'?'':'none';
+  });
+  servicesRoot.addEventListener('click',event=>{
+    const remove = event.target.closest('[data-remove-vendor-service]');
+    if(remove && window.confirm('Remove only this service entry? The rest of the client profile and other services will remain.')){remove.closest('.vendor-service-card').remove();[...servicesRoot.children].forEach((card,index)=>card.querySelector('.vendor-service-head strong').textContent=`Service ${index+1}`);}
+  });
+  document.getElementById('m-vendor-add-service').onclick=()=>servicesRoot.insertAdjacentHTML('beforeend',vendorServiceCard({id:uid(),type:'AMC',reminderDays:30},servicesRoot.children.length,{}));
+  document.getElementById('m-vendor-cancel').onclick=closeModal;
+  document.getElementById('m-vendor-save').onclick=async()=>{
+    const clientName=document.getElementById('m-vendor-client').value.trim();
+    if(!clientName){showToast('Client or account name is required.','error');return;}
+    const serviceData=[...servicesRoot.querySelectorAll('.vendor-service-card')].map(card=>{
+      const service={id:card.dataset.vendorService};
+      card.querySelectorAll('[data-service-field]').forEach(field=>{service[field.dataset.serviceField]=field.value;});
+      service.annualCost=Math.max(0,Number(service.annualCost)||0);
+      service.reminderDays=Math.max(0,Math.min(365,Number(service.reminderDays)||0));
+      service.autoRenew=service.autoRenew==='true';
+      return service;
+    });
+    const updated={id:existing?.id||uid(),clientName,status:document.getElementById('m-vendor-active').value,contactName:document.getElementById('m-vendor-contact').value.trim(),email:document.getElementById('m-vendor-email').value.trim(),phone:document.getElementById('m-vendor-phone').value.trim(),notes:document.getElementById('m-vendor-notes').value.trim(),services:serviceData,updatedAt:new Date().toISOString()};
+    const hasSecretInput=[...servicesRoot.querySelectorAll('[data-secret-field]')].some(field=>field.value.trim());
+    if(!vendorVaultKey && hasSecretInput){showToast('Unlock the credential vault before saving login details.','error');return;}
+    if(vendorVaultKey){
+      const credentials={};
+      servicesRoot.querySelectorAll('.vendor-service-card').forEach(card=>{
+        const values={};card.querySelectorAll('[data-secret-field]').forEach(field=>{values[field.dataset.secretField]=field.value;});
+        if(Object.values(values).some(Boolean))credentials[card.dataset.vendorService]=values;
+      });
+      updated.encryptedAccess=await encryptVendorData(credentials);
+    }else if(existing?.encryptedAccess){updated.encryptedAccess=existing.encryptedAccess;}
+    const index=state.vendors.items.findIndex(vendor=>vendor.id===updated.id);
+    if(index<0)state.vendors.items.push(updated);else state.vendors.items[index]=updated;
+    await saveVendors();closeModal();renderVendorMonitor();showToast('Client profile saved.','success');
+  };
+}
+
+window.editVendor=id=>{const vendor=state.vendors.items.find(item=>item.id===id);if(vendor)openVendorForm(vendor);};
+window.viewVendor=async id=>{
+  const vendor=state.vendors.items.find(item=>item.id===id);
+  if(!vendor)return;
+  let access={};
+  if(vendor.encryptedAccess && vendorVaultKey){
+    try{access=await decryptVendorData(vendor.encryptedAccess);}catch(error){showToast('Could not decrypt saved access details. Unlock the vault again.','error');return;}
+  }
+  const services=(vendor.services||[]).map(service=>{
+    const status=vendorServiceStatus(service),secret=access[service.id]||{};
+    const fields=[
+      ['Provider',service.provider],['Account / Reference',service.reference],['Start Date',service.startDate?fmtDate(service.startDate):''],
+      ['Renewal / Expiry',service.renewalDate?fmtDate(service.renewalDate):''],['Annual Cost',fmtMoney(service.annualCost||0)],
+      ['Reminder Lead',`${Number(service.reminderDays)||0} days`],['Auto-renew',service.autoRenew?'Yes':'No']
+    ];
+    const publicFields=fields.filter(([,value])=>value).map(([label,value])=>`<div><div class="metric-sub">${escapeHtml(label)}</div><strong>${escapeHtml(value)}</strong></div>`).join('');
+    const credentialFields=vendorVaultKey?[
+      ['Login URL',secret.loginUrl],['Username',secret.username],['Private Access Notes',secret.notes]
+    ].filter(([,value])=>value).map(([label,value])=>`<div class="field span-2"><label>${escapeHtml(label)}</label><div>${escapeHtml(value)}</div></div>`).join('')+(secret.password?`<div class="field"><label>Password</label><div style="display:flex;align-items:center;gap:8px"><input type="password" readonly value="${escapeHtml(secret.password)}" data-vendor-detail-password style="min-height:34px"><button type="button" class="btn btn-secondary btn-sm" data-reveal-vendor-password>Show</button></div></div>`:''):'<div class="vendor-credential-note">Vault is locked. Unlock it to view saved access details.</div>';
+    return `<div class="vendor-service-card"><div class="vendor-service-head"><strong>${escapeHtml(vendorServiceName(service))}</strong><span class="badge ${status.className}">${escapeHtml(status.label)}</span></div><div class="form-grid cols-3">${publicFields}${service.customType&&service.type==='Custom'?`<div><div class="metric-sub">Custom Service</div><strong>${escapeHtml(service.customType)}</strong></div>`:''}</div><div class="form-grid cols-3" style="margin-top:14px"><div class="field span-2"><label>Account Access</label></div>${credentialFields}</div></div>`;
+  }).join('')||'<p class="hint">No services have been added to this client.</p>';
+  const contact=[vendor.contactName,vendor.email,vendor.phone].filter(Boolean).map(escapeHtml).join(' · ')||'No contact details';
+  openModal(`<div class="modal-head"><h3>${escapeHtml(vendor.clientName||'Client details')}</h3><span class="badge ${vendor.status==='Inactive'?'badge-draft':'badge-paid'}">${escapeHtml(vendor.status||'Active')}</span></div><p class="vendor-client-meta">${contact}</p>${vendor.notes?`<div class="panel" style="box-shadow:none;margin:14px 0;padding:12px"><strong>Client notes</strong><div style="margin-top:5px">${escapeHtml(vendor.notes)}</div></div>`:''}<div class="panel-head" style="margin-top:18px"><h3>Services &amp; renewals</h3></div>${services}<div class="modal-actions"><button class="btn btn-danger" id="vendor-details-delete" style="margin-right:auto">Delete Client Profile</button><button class="btn btn-ghost" id="vendor-details-close">Close</button><button class="btn btn-primary" id="vendor-details-edit">Edit Profile</button></div>`,{wide:true});
+  document.getElementById('vendor-details-close').onclick=closeModal;
+  document.getElementById('vendor-details-edit').onclick=()=>{closeModal();openVendorForm(vendor);};
+  document.getElementById('vendor-details-delete').onclick=()=>{closeModal();deleteVendor(vendor.id);};
+  document.querySelectorAll('[data-reveal-vendor-password]').forEach(button=>button.addEventListener('click',()=>{
+    const input=button.parentElement.querySelector('[data-vendor-detail-password]');
+    const revealing=input.type==='password';input.type=revealing?'text':'password';button.textContent=revealing?'Hide':'Show';
+  }));
+};
+window.deleteVendorService=(vendorId,serviceId)=>{const vendor=state.vendors.items.find(item=>item.id===vendorId),service=vendor?.services?.find(item=>item.id===serviceId);if(!vendor||!service)return;confirmAction(`Delete only the ${vendorServiceName(service)} entry for ${vendor.clientName}? Other client details and services will remain.`,async()=>{vendor.services=vendor.services.filter(item=>item.id!==serviceId);vendor.updatedAt=new Date().toISOString();await saveVendors();renderVendorMonitor();showToast('Service entry deleted. Client profile and other services were kept.','success');});};
+window.deleteVendor=id=>{const vendor=state.vendors.items.find(item=>item.id===id);if(!vendor)return;confirmAction(`Delete the entire client profile for ${vendor.clientName}, including all ${vendor.services?.length||0} service entries and renewal records?`,async()=>{state.vendors.items=state.vendors.items.filter(item=>item.id!==id);await saveVendors();renderVendorMonitor();showToast('Client profile deleted.','success');});};
+document.getElementById('btn-add-vendor').addEventListener('click',()=>openVendorForm(null));
+document.getElementById('vendor-search').addEventListener('input',()=>{vendorPage=0;renderVendorMonitor();});
+document.getElementById('vendor-filter-status').addEventListener('change',()=>{vendorPage=0;renderVendorMonitor();});
+
+/* =========================================================================
    PURCHASE BILLS / OCR RECEIVING
 ========================================================================= */
 let purchaseDraftItems=[];
@@ -3123,7 +3574,7 @@ document.getElementById('btn-settings').addEventListener('click', ()=>{
   document.getElementById('m-biz-logo').value = '';
   document.getElementById('m-biz-cancel').onclick = closeModal;
   document.getElementById('m-biz-backup').onclick = ()=>{
-    const backup={version:3,exportedAt:new Date().toISOString(),profile:state.profile,transactions:state.transactions,bills:state.bills,quotations:state.quotations,inventory:state.inventory,staff:state.staff,sales:state.sales,purchases:state.purchases};
+    const backup={version:4,exportedAt:new Date().toISOString(),profile:state.profile,transactions:state.transactions,bills:state.bills,quotations:state.quotations,inventory:state.inventory,staff:state.staff,sales:state.sales,purchases:state.purchases,vendors:state.vendors};
     const url=URL.createObjectURL(new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}));
     const a=document.createElement('a');a.href=url;a.download=`bananastack-backup-${todayStr()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     showToast('Backup exported','success');
@@ -3171,8 +3622,8 @@ document.getElementById('btn-settings').addEventListener('click', ()=>{
   };
   document.getElementById('m-biz-reset').onclick = ()=>{
     confirmAction('This will permanently delete all transactions, bills, staff, and inventory records. Continue?', async ()=>{
-      state.transactions = []; state.bills = []; state.quotations = []; state.staff = []; state.inventory = []; state.sales = []; state.purchases = [];
-      await Promise.all([saveTransactions(), saveBills(), saveQuotations(), saveStaff(), saveInventory(), saveSales(), savePurchases()]);
+      state.transactions = []; state.bills = []; state.quotations = []; state.staff = []; state.inventory = []; state.sales = []; state.purchases = []; state.vendors = {salt:'',check:null,items:[]}; vendorVaultKey = null;
+      await Promise.all([saveTransactions(), saveBills(), saveQuotations(), saveStaff(), saveInventory(), saveSales(), savePurchases(), saveVendors()]);
       closeModal();
       renderDashboard(); renderBillsList(); renderQuotations(); renderStaff(); renderInventory();
       showToast('All data cleared', 'success');
@@ -3449,6 +3900,8 @@ document.getElementById('btn-login').addEventListener('click', async ()=>{
       body: JSON.stringify({username, password})
     });
     if(res.ok){
+      const result=await res.json();
+      currentAccount=result.account||{username,role:username==='bnadmin'?'admin':'user',permissions:{}};
       showApp();
       await init();
     } else {
@@ -3472,6 +3925,7 @@ document.getElementById('login-user').addEventListener('keydown', (e)=>{
 
 document.getElementById('btn-logout').addEventListener('click', async ()=>{
   await fetch('/api/logout', {method:'POST'});
+  currentAccount={username:'',role:'user',permissions:{}};
   showLogin();
   document.getElementById('login-user').value = '';
   document.getElementById('login-pass').value = '';
@@ -3696,6 +4150,12 @@ async function init(){
   applyTaxSettingsToQuickSale();
   renderSalesAnalytics();
   populateReportDropdowns();
+  renderVendorVault();
+  renderVendorMonitor();
+  if(!hasScreenAccess('dashboard','read')){
+    const firstAllowed=ACCESS_SCREENS.find(([screen])=>hasScreenAccess(screen,'read'));
+    if(firstAllowed)switchView(firstAllowed[0]);
+  }else applyScreenPermissions();
 }
 
 // On page load, check if already logged in
@@ -3703,13 +4163,17 @@ async function init(){
   try{
     const res = await fetch('/api/me');
     if(res.ok){
+      const session=await res.json();
+      currentAccount=session.account||{username:session.user,role:session.user==='bnadmin'?'admin':'user',permissions:{}};
       await loadLogo();
       showApp();
       await init();
     } else {
+      currentAccount={username:'',role:'user',permissions:{}};
       showLogin();
     }
   }catch(e){
+    currentAccount={username:'',role:'user',permissions:{}};
     showLogin();
   }
 })();
